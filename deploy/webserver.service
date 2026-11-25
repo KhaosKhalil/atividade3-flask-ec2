@@ -1,0 +1,18 @@
+# Modelo do servico systemd (o setup_ec2.sh cria este arquivo sozinho).
+# Para usar manualmente: ajuste os caminhos e o nome, depois
+#   sudo cp deploy/webserver.service /etc/systemd/system/
+#   sudo systemctl daemon-reload
+#   sudo systemctl enable --now webserver
+[Unit]
+Description=Servidor Web Flask (Atividade 3)
+After=network.target
+
+[Service]
+User=ubuntu
+WorkingDirectory=/home/ubuntu/atividade3-flask-ec2
+Environment="NOME_ALUNO=Khalil Ayoub de Lima Krayem"
+ExecStart=/home/ubuntu/atividade3-flask-ec2/venv/bin/gunicorn --workers 2 --bind 0.0.0.0:5000 app:app
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

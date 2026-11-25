@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}Início{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Servidor Web Flask na AWS EC2</h1>
+    <p>Aplicação Flask publicada em uma instância Ubuntu na nuvem da AWS, acessível pelo IP público.</p>
+    <a class="botao" href="{{ url_for('sobre') }}">Como foi feito</a>
+</section>
+
+<section class="cards">
+    <article class="card">
+        <h2>Amazon EC2</h2>
+        <p>Máquina virtual Ubuntu Server criada no nível gratuito, com par de chaves para acesso SSH.</p>
+    </article>
+    <article class="card">
+        <h2>Security Group</h2>
+        <p>Regras de entrada liberando a porta 22 (SSH) e a porta 5000 (Flask).</p>
+    </article>
+    <article class="card">
+        <h2>Ambiente virtual</h2>
+        <p>Dependências isoladas em um <code>venv</code> e listadas no <code>requirements.txt</code>.</p>
+    </article>
+</section>
+
+<section class="relogio-box">
+    <p>Hora no seu navegador: <span id="relogio">--:--:--</span></p>
+</section>
+{% endblock %}

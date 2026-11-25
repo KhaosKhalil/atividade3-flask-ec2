@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Sobre{% endblock %}
+
+{% block content %}
+<h1>Sobre o projeto</h1>
+<p>Este site é a entrega da <strong>{{ atividade }}</strong>. O objetivo é tirar a aplicação do ambiente local e publicá-la na nuvem.</p>
+
+<h2>Etapas do deploy</h2>
+<ol class="etapas">
+    <li><strong>Instância EC2:</strong> Ubuntu Server, tipo do nível gratuito, nome <code>webServer-seunome</code>.</li>
+    <li><strong>Security Group:</strong> entrada liberada para SSH (22/tcp) e Flask (5000/tcp).</li>
+    <li><strong>Preparação:</strong> <code>apt update</code>, <code>apt upgrade</code> e instalação de <code>python3-venv</code> e <code>python3-pip</code>.</li>
+    <li><strong>Projeto:</strong> pasta no diretório do usuário, <code>git clone</code> e criação do ambiente virtual.</li>
+    <li><strong>Dependências:</strong> <code>pip install -r requirements.txt</code>.</li>
+    <li><strong>Execução:</strong> Gunicorn em <code>0.0.0.0:5000</code> como serviço do systemd, que continua rodando após fechar o SSH.</li>
+</ol>
+
+<h2>Tecnologias</h2>
+<ul class="tags">
+    <li>Python</li>
+    <li>Flask</li>
+    <li>Jinja2</li>
+    <li>Gunicorn</li>
+    <li>Ubuntu</li>
+    <li>AWS EC2</li>
+</ul>
+{% endblock %}

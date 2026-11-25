@@ -1,0 +1,14 @@
+# Ambiente virtual (cada maquina cria o seu)
+venv/
+.venv/
+
+# Python
+__pycache__/
+*.pyc
+
+# NUNCA versionar chaves de acesso da AWS
+*.pem
+*.ppk
+
+# Variaveis de ambiente
+.env
